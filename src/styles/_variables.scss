@@ -1,0 +1,67 @@
+// カラーパレット
+$color-primary: #000000;
+$color-secondary: #080b1a;
+$color-accent-1: #6A11CB;
+$color-accent-2: #2575FC;
+$color-accent-3: #FDA085;
+$color-accent-4: #E0E8FF;
+$color-accent-5: #550ea2;
+$color-accent-6: #0245b5;
+$color-accent-7: #023fa6;
+$color-text-primary: #FFFFFF;
+$color-text-secondary: #B8B8D4;
+$color-text-light: #e6e6e6;
+
+// フォントサイズ
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 2rem;
+$font-size-4xl: 2.5rem;
+
+// ブレークポイント
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// アニメーション速度
+$transition-slow: 0.5s;
+$transition-normal: 0.3s;
+$transition-fast: 0.15s;
+
+// Z-index層
+$z-index-background: -1;
+$z-index-default: 1;
+$z-index-navbar: 10;
+$z-index-modal: 100;
+$z-index-loader: 999;
+
+// スペーシング
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+$title-shadow: rgba(6, 19, 42, 0.1) 0px 0px 10px;
+
+// ブログカテゴリーのグラデーションカラー
+$gradient-tech-start: #2575FC;
+$gradient-tech-end: #6A11CB;
+
+$gradient-dev-start: #8E2DE2;
+$gradient-dev-end: #4A00E0;
+
+$gradient-life-start: #00CDAC;
+$gradient-life-end: #4776E6;
+
+$gradient-hobby-start: #e67e22;
+$gradient-hobby-end: #FDA085;
+
+$gradient-other-start: #2b2b2b;
+$gradient-other-end: #7b7b7b;

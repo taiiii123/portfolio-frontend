@@ -1,0 +1,193 @@
+@import './variables';
+@import './_mixins';
+@import './reset';
+@import './animations';
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1f2842;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2a365a;
+}
+
+
+// 全体のスタイル
+body {
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+  color: $color-text-light;
+  background: #03040A;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+// コンテナスタイル
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+// セクションスタイル
+.section {
+  padding: $spacing-2xl 0;
+}
+
+// 見出しスタイル
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  margin-bottom: $spacing-xl;
+  background: linear-gradient(90deg, $color-accent-2, $color-accent-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba($color-accent-2, 0.5);
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  margin-bottom: $spacing-lg;
+  position: relative;
+
+}
+
+// リンクスタイル
+a {
+  transition: all $transition-normal ease;
+
+  &:hover {
+    color: $color-accent-2;
+  }
+}
+
+// ボタンスタイル
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background: linear-gradient(90deg, $color-accent-1, $color-accent-2);
+  color: $color-text-primary;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all $transition-normal ease;
+  box-shadow: 0 4px 15px rgba($color-accent-1, 0.3);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba($color-accent-1, 0.5);
+  }
+
+  &.btn-outline {
+    background: transparent;
+    border: 2px solid $color-accent-2;
+
+    &:hover {
+      background: linear-gradient(90deg, $color-accent-1, $color-accent-2);
+    }
+  }
+}
+
+// カードスタイル
+.card {
+  background: rgba($color-secondary, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: $spacing-lg;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba($color-accent-2, 0.1);
+  transition: all $transition-normal ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba($color-accent-2, 0.3);
+  }
+}
+
+// ページ遷移アニメーション
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.slide-left-enter-from {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.slide-left-leave-to {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+/* slide-right - 右からスライド */
+.slide-right-enter-from {
+  transform: translateX(100%);
+}
+.slide-right-leave-to {
+  transform: translateX(-100%);
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.zoom-enter-from {
+  transform: scale(0.9);
+  opacity: 0;
+}
+.zoom-leave-to {
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+// ローディングスピナー
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba($color-accent-2, 0.3);
+  border-radius: 50%;
+  border-top-color: $color-accent-2;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star {
+  position: absolute;
+  background-color: $color-text-primary;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

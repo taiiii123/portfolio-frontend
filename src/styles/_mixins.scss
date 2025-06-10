@@ -1,0 +1,166 @@
+/* Mixins */
+@import './variables';
+
+// フレックスボックスセンタリング
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// フレックスボックス列センタリング
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// スペースビトウィーン
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 絶対位置センタリング
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// レスポンシブメディアクエリ
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// グラスモーフィズム効果
+@mixin glassmorphism {
+  background: rgba($color-secondary, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($color-accent-2, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+// グラデーションテキスト
+@mixin gradient-text {
+  background: linear-gradient(90deg, $color-accent-2, $color-accent-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+// 文字省略（単一行）
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 文字省略（複数行）
+@mixin text-truncate-lines($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ホバーエフェクト（カード用）
+@mixin card-hover {
+  transition: all $transition-normal ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba($color-accent-2, 0.3);
+  }
+}
+
+// ボタン基本スタイル
+@mixin button-style {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background: linear-gradient(90deg, $color-accent-1, $color-accent-2);
+  color: $color-text-primary;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all $transition-normal ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba($color-accent-1, 0.5);
+  }
+}
+
+// グローエフェクト
+@mixin glow($color, $size: 20px) {
+  box-shadow: 0 0 $size rgba($color, 0.5);
+}
+
+// アニメーション適用
+@mixin animate($animation, $duration, $delay: 0s, $iteration: 1, $timing: ease) {
+  animation: $animation $duration $timing $delay $iteration;
+}
+
+// スクロールバースタイル
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($color-secondary, 0.3);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient($color-accent-1, $color-accent-2);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-accent-2;
+  }
+}
+
+// 星空の背景
+@mixin stars-background {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--stars-bg, url('/stars-bg.png'));
+    background-size: cover;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: $z-index-background;
+  }
+}

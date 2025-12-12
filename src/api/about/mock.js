@@ -41,7 +41,7 @@ const timelineData = [
 
 
 // 全てのタイムラインアイテムを取得するGETリクエスト
-mock.onGet('/api/timeline').reply((config) => {
+mock.onGet('/timeline').reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

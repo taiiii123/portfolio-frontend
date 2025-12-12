@@ -329,7 +329,7 @@ export default {
       this.isLoading = true;
 
       this.$axios
-        .get('/api/projects/featured')
+        .get('/projects/featured')
         .then((response) => {
           this.featuredProjects = response.data.featuredProjects;
           this.isLoading = false;

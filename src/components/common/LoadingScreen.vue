@@ -101,7 +101,7 @@ export default {
   beforeUnmount() {
     if(process.env.VUE_APP_NODE_ENV !== "development") {
       this.$axios
-        .post('/access')
+        .post('/api/access')
         .then((response) => {
           if (response.status !== 200) {
             throw new Error(`APIエラー: ${response.status}`);

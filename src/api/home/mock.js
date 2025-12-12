@@ -43,7 +43,7 @@ const featuredProjectsData = [
 ];
 
 // おすすめプロジェクトを取得するGETリクエスト
-mock.onGet("/projects/featured").reply((config) => {
+mock.onGet("/api/projects/featured").reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

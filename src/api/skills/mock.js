@@ -84,7 +84,7 @@ const skillsData = {
 };
 
 // すべてのスキルデータを一度に取得するエンドポイント
-mock.onGet('/skills/all').reply((config) => {
+mock.onGet('/api/skills/all').reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

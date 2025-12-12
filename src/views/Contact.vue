@@ -337,7 +337,6 @@ export default {
 
           if (response.data) {
             // 送信成功時の処理
-            console.log("お問い合わせ送信成功:", response.data);
             this.submitSuccess = true;
             this.triggerSuccessAnimation();
 
@@ -375,10 +374,6 @@ export default {
             error.response.data &&
             error.response.data.errors
           ) {
-            console.log(
-              "バリデーションエラーを受信:",
-              error.response.data.errors
-            );
             this.apiErrors = error.response.data.errors;
             this.submitError = true;
           }

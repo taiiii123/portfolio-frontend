@@ -78,16 +78,10 @@ export default {
     scrollToCanvas() {
       if (this.isScrolling) return;
 
-      console.log("キャンバスボタンがクリックされました");
-
       // キャンバス用の隠し要素にスクロール
       const canvasAnchor = document.getElementById("canvas-anchor");
-      console.log("キャンバスアンカー要素:", canvasAnchor);
 
       if (canvasAnchor) {
-        console.log(
-          "キャンバスアンカー要素が見つかりました。スクロール開始..."
-        );
         this.isScrolling = true;
         this.scrollToElement(canvasAnchor);
       } else {
@@ -95,7 +89,6 @@ export default {
         // フォールバック: 直接 canvas-container を探す
         const canvasContainer = document.querySelector(".canvas-container");
         if (canvasContainer) {
-          console.log("フォールバック: canvas-containerにスクロールします");
           this.isScrolling = true;
           this.scrollToElementWithOffset(canvasContainer, 112);
         }
@@ -104,16 +97,10 @@ export default {
     scrollToControls() {
       if (this.isScrolling) return;
 
-      console.log("コントロールボタンがクリックされました");
-
       // コントロール用の隠し要素にスクロール
       const controlsAnchor = document.getElementById("controls-anchor");
-      console.log("コントロールアンカー要素:", controlsAnchor);
 
       if (controlsAnchor) {
-        console.log(
-          "コントロールアンカー要素が見つかりました。スクロール開始..."
-        );
         this.isScrolling = true;
         this.scrollToElement(controlsAnchor);
       } else {
@@ -121,7 +108,6 @@ export default {
         // フォールバック: 直接 control-panel を探す
         const controlPanel = document.querySelector(".control-panel");
         if (controlPanel) {
-          console.log("フォールバック: control-panelにスクロールします");
           this.isScrolling = true;
           this.scrollToElementWithOffset(controlPanel, 112);
         }
@@ -143,7 +129,6 @@ export default {
     // 要素にスクロール（オフセットなし）
     scrollToElement(element) {
       const targetPosition = this.getElementAbsolutePosition(element);
-      console.log("要素の絶対位置:", targetPosition);
       this.animateScrollTo(targetPosition);
     },
 
@@ -151,12 +136,6 @@ export default {
     scrollToElementWithOffset(element, offset) {
       const elementPosition = this.getElementAbsolutePosition(element);
       const targetPosition = Math.max(0, elementPosition - offset);
-      console.log(
-        "要素の絶対位置:",
-        elementPosition,
-        "オフセット後:",
-        targetPosition
-      );
       this.animateScrollTo(targetPosition);
     },
     animateScrollTo(targetPosition) {

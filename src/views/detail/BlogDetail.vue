@@ -1026,7 +1026,6 @@ export default {
         ]);
 
         const extractPost = (response) => {
-          console.log("前後の記事のレスポンス:", response);
 
           if (response.status !== 'fulfilled') {
             return null;
@@ -1079,7 +1078,6 @@ export default {
 
         const validatePost = (response) => {
           const { status, data } = response;
-          console.log("関連記事のレスポンス:", data);
 
           if (status !== 200 || !data?.contents?.length) {
             return null
@@ -1181,7 +1179,6 @@ export default {
 
       script.onload = () => {
         this.iframelyScriptLoaded = true;
-        console.log('Iframely script loaded successfully');
         this.reinitializeIframely();
       };
 
@@ -1910,70 +1907,56 @@ export default {
     border-spacing: 0;
     margin: $spacing-xl 0;
     font-size: $font-size-sm;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(41, 98, 255, 0.3);
-    position: relative;
-    z-index: 1;
+    background: rgba(10, 27, 56, 0.5);
+    border: 1px solid rgba(65, 120, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
-    background: linear-gradient(135deg, #05101f, #0a1b38);
-    border: 1px solid rgba(65, 120, 255, 0.3);
+    @media (max-width: $breakpoint-md) {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 40%,
-          rgba(41, 121, 255, 0.15) 0%,
-          transparent 60%),
-        radial-gradient(circle at 70% 70%,
-          rgba(66, 135, 245, 0.15) 0%,
-          transparent 60%);
-      z-index: -1;
+      /* スクロールバーのスタイリング */
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(10, 27, 56, 0.5);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(65, 120, 255, 0.6);
+        border-radius: 4px;
+
+        &:hover {
+          background: rgba(65, 120, 255, 0.8);
+        }
+      }
+
+      thead, tbody {
+        display: table;
+        width: 100%;
+      }
     }
   }
 
   :deep(th) {
-    background: rgba(8, 32, 77, 0.95);
+    background: rgba(20, 50, 100, 0.6);
     color: #a2d6ff;
     font-weight: 600;
-    padding: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
     text-align: left;
-    position: relative;
-    z-index: 1;
-    text-shadow: 0 0 15px rgba(162, 214, 255, 0.5);
-    letter-spacing: 0.5px;
-    border-bottom: 3px solid rgba(65, 120, 255, 0.8);
-    border-right: 2px solid rgba(65, 120, 255, 0.4);
+    border-bottom: 2px solid rgba(65, 120, 255, 0.4);
+    border-right: 1px solid rgba(65, 120, 255, 0.15);
+    white-space: nowrap;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom,
-          rgba(65, 120, 255, 0.1),
-          transparent);
-      z-index: -1;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg,
-          rgba(41, 98, 255, 0.3),
-          rgba(65, 120, 255, 0.9),
-          rgba(41, 98, 255, 0.3));
-      box-shadow: 0 0 8px rgba(65, 120, 255, 0.6);
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-xs $spacing-sm;
+      font-size: $font-size-xs;
     }
   }
 
@@ -1986,23 +1969,21 @@ export default {
     border-right: none;
   }
 
-  :deep(th:hover) {
-    background: rgba(14, 45, 102, 0.95);
-    /* 少し明るくする */
-    color: #ffffff;
-  }
-
   :deep(td) {
-    padding: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
     min-width: 100px;
-    border: none;
     color: #b8d8ff;
-    position: relative;
-    z-index: 1;
-    background-color: rgba(10, 27, 56, 0.4);
-    transition: all 0.4s ease;
-    border-bottom: 1px solid rgba(65, 120, 255, 0.25);
-    border-right: 1px solid rgba(65, 120, 255, 0.15);
+    background-color: rgba(10, 27, 56, 0.3);
+    border-bottom: 1px solid rgba(65, 120, 255, 0.1);
+    border-right: 1px solid rgba(65, 120, 255, 0.1);
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-xs $spacing-sm;
+      font-size: $font-size-xs;
+      min-width: 80px;
+    }
   }
 
   :deep(td:last-child) {
@@ -2013,69 +1994,12 @@ export default {
     border-bottom: none;
   }
 
-  :deep(tr:hover) {
-    background-color: rgba(28, 65, 126, 0.3);
+  :deep(tbody tr:hover td) {
+    background-color: rgba(28, 65, 126, 0.4);
   }
 
-  :deep(tr:hover td) {
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(178, 216, 255, 0.7);
-  }
-
-  :deep(table::after) {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(1px 1px at 20px 30px,
-        white,
-        rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 40px 80px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 80px 120px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 120px 60px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 160px 180px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 200px 150px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 240px 100px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 280px 200px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 320px 110px, white, rgba(255, 255, 255, 0)),
-      radial-gradient(1px 1px at 360px 180px, white, rgba(255, 255, 255, 0));
-    background-size: 400px 400px;
-    opacity: 0.4;
-    z-index: 0;
-    animation: space-twinkle 120s linear infinite;
-  }
-
-  /* ヘッダー行の特別な装飾 */
-  :deep(thead tr) {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    position: relative;
-    z-index: 2;
-  }
-
-  :deep(thead::after) {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right,
-        transparent,
-        rgba(65, 120, 255, 0.8),
-        transparent);
-    box-shadow: 0 0 10px rgba(65, 120, 255, 0.6);
-    z-index: 3;
-  }
-
-  :deep(td:first-child) {
-    background-color: rgba(14, 36, 74, 0.5);
-    font-weight: 500;
-  }
-
-  :deep(tr:nth-child(even) td) {
-    background-color: rgba(16, 40, 82, 0.35);
+  :deep(tbody tr:nth-child(even) td) {
+    background-color: rgba(15, 35, 70, 0.3);
   }
 
   // リストのスタイル

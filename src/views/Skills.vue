@@ -177,7 +177,7 @@ export default {
       this.loadingCertifications = true;
 
       this.$axios
-        .get("/api/skills/all")
+        .get("/skills/all")
         .then((response) => {
           if (response.status !== 200) {
             throw new Error(`APIエラー: ${response.status}`);

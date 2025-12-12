@@ -242,7 +242,7 @@ export default {
       this.loading = true;
 
       this.$axios
-        .get('/api/timeline')
+        .get('/timeline')
         .then((response) => {
           if (response.status !== 200) {
             throw new Error(`APIエラー: ${response.status}`);

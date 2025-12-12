@@ -559,7 +559,7 @@ const validateApiKey = (config) => {
 };
 
 // ブログ記事を取得するGETリクエスト（ページネーション・フィルタリング・検索・前の記事・次の記事・関連記事）
-mock.onGet("/api/blog/posts").reply((config) => {
+mock.onGet("/blog/posts").reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

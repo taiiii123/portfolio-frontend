@@ -6,7 +6,7 @@ import { validateApiKey } from '@/api/utils/auth';
 const mock = new MockAdapter(axios, { delayResponse: 5000 });
 
 // 全てのタイムラインアイテムを取得するGETリクエスト
-mock.onPost('/api/access').reply((config) => {
+mock.onPost('/access').reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

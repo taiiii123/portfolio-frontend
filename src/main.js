@@ -21,7 +21,7 @@ app.config.globalProperties.$axios = axios;
 // ベースURLを設定（全てのリクエストで共通）
 axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
 
-// axiosを提供
+// axiosをapi
 app.provide('axios', axios);
 app.provide('API_KEY', API_KEY);
 

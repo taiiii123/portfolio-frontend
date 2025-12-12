@@ -402,7 +402,7 @@ const projectsData2 = [
 ];
 
 // カテゴリー一覧を取得するGETリクエスト
-mock.onGet("/api/projects/categories").reply((config) => {
+mock.onGet("/projects/categories").reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {
@@ -416,7 +416,7 @@ mock.onGet("/api/projects/categories").reply((config) => {
 });
 
 // プロジェクト一覧を取得するGETリクエスト（ページネーション・フィルタリング対応）
-mock.onGet("/api/projects").reply((config) => {
+mock.onGet("/projects").reply((config) => {
   // API Keyを検証
   const authError = validateApiKey(config);
   if (authError) {

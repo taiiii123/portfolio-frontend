@@ -326,7 +326,7 @@ export default {
       };
 
       this.$axios
-        .post('/api/contact', null, {
+        .post('/contact', null, {
           params: params,
           timeout: 30000
         })

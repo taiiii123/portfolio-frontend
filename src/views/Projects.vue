@@ -212,7 +212,7 @@ export default {
   methods: {
     // カテゴリーデータをAPIから取得
     fetchCategories() {
-      this.$axios.get('/api/projects/categories')
+      this.$axios.get('/projects/categories')
       .then(response => {
         if (response.status !== 200) {
           throw new Error(`APIエラー: ${response.status}`);
@@ -242,7 +242,7 @@ export default {
         category: this.selectedCategory
       };
 
-      this.$axios.get('/api/projects', {
+      this.$axios.get('/projects', {
         params: params
       })
       .then(response => {

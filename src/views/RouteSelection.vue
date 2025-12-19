@@ -7,8 +7,7 @@
       </div>
       <h2 class="title animated-gradient">
         <div class="title-container">
-          <div class="title-top">旅の行き先を</div>
-          <div class="title-bottom">選んでください</div>
+          <div class="title-text">ようこそ</div>
         </div>
       </h2>
 
@@ -36,7 +35,7 @@
               <h2>ブログ</h2>
             </div>
           </div>
-          <p class="route-description">日々の学びや発見を記録したブログへ</p>
+          <p class="route-description">技術や日常のことを書いたブログへ</p>
         </div>
       </div>
     </div>
@@ -259,14 +258,6 @@ export default {
   margin-bottom: 4rem;
   font-family: "NotoSansJPBold", serif;
   letter-spacing: 0.05em;
-}
-
-.title-top {
-    margin-right: 3rem;
-}
-
-.title-bottom {
-    margin-left: 3rem;
 }
 
 .animated-gradient {

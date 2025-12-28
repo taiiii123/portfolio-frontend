@@ -17,6 +17,7 @@
     "marked": "^15.0.12",
     "tsparticles-slim": "^2.12.0",
     "v-viewer": "^3.0.21",
+    "vue-gtag-next": "^1.14.0",
     "vue": "^3.2.13",
     "vue-router": "^4.5.1",
     "vue3-carousel": "^0.15.1",

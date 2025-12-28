@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Particles from "vue3-particles";
-import VueViewer from 'v-viewer'
+import VueViewer from 'v-viewer';
+import VueGtag from 'vue-gtag-next';
 import axios from 'axios';
 import './styles/main.scss';
 
@@ -29,4 +30,9 @@ app.use(router)
 app.use(store)
 app.use(Particles)
 app.use(VueViewer)
+app.use(VueGtag, {
+  property: {
+    id: process.env.VUE_APP_GA_MEASUREMENT_ID
+  }
+})
 app.mount('#app')
